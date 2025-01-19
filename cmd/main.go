@@ -1,10 +1,10 @@
 package main
 
 import (
-	"concurrentDataProcessing/internal/logger"
-	"concurrentDataProcessing/internal/processor"
 	"flag"
 	"fmt"
+	"https://github.com/srg77global/concurrentDataProcessing/internal/logger"
+	"https://github.com/srg77global/concurrentDataProcessing/internal/processor"
 	"log"
 )
 

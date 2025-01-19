@@ -1,7 +1,7 @@
 package benchmarks
 
 import (
-	"concurrentDataProcessing/internal/processor"
+	"https://github.com/srg77global/concurrentDataProcessing/internal/processor"
 	"testing"
 )
 

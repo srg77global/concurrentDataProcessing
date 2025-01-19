@@ -1,8 +1,9 @@
 package benchmarks
 
 import (
-	"https://github.com/srg77global/concurrentDataProcessing/internal/processor"
 	"testing"
+
+	"github.com/srg77global/concurrentDataProcessing/internal/processor"
 )
 
 func BenchmarkProcessFile(b *testing.B) {

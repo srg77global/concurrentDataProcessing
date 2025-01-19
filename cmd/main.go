@@ -3,9 +3,10 @@ package main
 import (
 	"flag"
 	"fmt"
-	"https://github.com/srg77global/concurrentDataProcessing/internal/logger"
-	"https://github.com/srg77global/concurrentDataProcessing/internal/processor"
 	"log"
+
+	"github.com/srg77global/concurrentDataProcessing/internal/logger"
+	"github.com/srg77global/concurrentDataProcessing/internal/processor"
 )
 
 func main() {

@@ -19,4 +19,4 @@ go run cmd/main.go -file=path/to/the/file.txt -workers=10
 
 Используемые технологии.
 - Go standard library.
-- Горутины и каналы.
+- Горутины и каналы.# concurrentDataProcessing

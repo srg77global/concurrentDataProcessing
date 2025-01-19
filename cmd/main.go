@@ -1,25 +1,35 @@
 package main
 
 import (
-	"concurrentDataProcessing/pkg/opener"
+	"concurrentDataProcessing/internal/logger"
+	"concurrentDataProcessing/internal/processor"
+	"flag"
 	"fmt"
 	"log"
-	"os"
 )
 
 func main() {
-	file, err := os.Open("../files/metro.txt")
+	// Параметры запуска.
+	filePath := flag.String("file", "", "path to the file")
+	workerCount := flag.Int("workers", 4, "number of goroutines")
+	flag.Parse()
+
+	if *filePath == "" {
+		log.Fatal("empty path to the file; use flag -file.")
+	}
+
+	// Инициализация логгера.
+	logger.InitLogger()
+
+	// Запуск обработки файла.
+	topWords, err := processor.ProcessFile(*filePath, *workerCount)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalf("file process error: %v", err)
 	}
-	defer file.Close()
 
-	dictionary := make(map[string]int)
-
-	opener.ReadLines(file, dictionary)
-
-	for key, value := range dictionary {
-		fmt.Printf("%s: %d\n", key, value)
+	// Вывод результата.
+	fmt.Println("TOP 10 words by frequency:")
+	for i, word := range topWords {
+		fmt.Printf("%d. %s: %d\n", i+1, word.Word, word.Count)
 	}
-	print("Привет мир!")
 }
